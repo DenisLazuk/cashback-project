@@ -14,10 +14,10 @@
 
 ## Установка
 
-Требования: Python 3.x, pandas, numpy.
+Требования: Python 3.x.
 
 ```bash
-pip install pandas numpy
+pip install -r requirements.txt
 ```
 
 ## Запуск
@@ -62,7 +62,7 @@ C:\Users\denis\Software\anaconda\python.exe CASHBACK_app.py
 
 ### Приоритет категорий
 
-Список `PRIORITY_CATEGORIES` задаёт порядок выбора: сначала «на все», продукты, аптеки, такси и каршеринг, фастфуд, кафе и рестораны, досуг, затем остальные.
+Список `PRIORITY_CATEGORIES` задаёт порядок выбора: сначала «на все», продукты, аптеки, такси и каршеринг, жд билеты, фастфуд, кафе и рестораны, досуг, затем остальные.
 
 ### Закреплённые выборы
 
@@ -87,8 +87,9 @@ LOCKED_SELECTIONS = [
 ```
 cashback project/
 ├── CASHBACK_app.py          # основной скрипт
-├── CASHBACK_app.ipynb       # Jupyter-версия
 ├── run_cashback.bat         # запуск на Windows
+├── requirements.txt         # зависимости (pandas, numpy)
+├── LICENSE                  # MIT License
 ├── best_categories.txt      # результат (генерируется)
 ├── best_categories_active.txt
 └── README.md
@@ -96,4 +97,4 @@ cashback project/
 
 ## Лицензия
 
-Проект для личного использования.
+MIT License — см. файл [LICENSE](LICENSE).

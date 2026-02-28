@@ -6,7 +6,7 @@ locked=1: pre-selected by you (fixed). locked=0: chosen by algorithm.
 
  rank  bank               category  ratio  m_limit limit_type  status  locked
     1 tbank                 на все   0.01   5000.0        all       1       1
-    2   vtb                 аптеки   0.04   3000.0        all       1       0
+    2   vtb                 аптеки   0.04   1000.0        all       1       0
     3   otp      такси и каршеринг   0.05   3000.0        all       1       1
     4   psb      такси и каршеринг   0.05   3000.0        all       1       0
     5 tbank              жд билеты   0.05   5000.0        all       1       0
@@ -26,8 +26,8 @@ locked=1: pre-selected by you (fixed). locked=0: chosen by algorithm.
    19 alpha            спорттовары   0.05   5000.0        all       1       0
    20   dom            спорттовары   0.05   1000.0        all       1       0
    21  sber              транспорт   0.10   5000.0        all       1       0
-   22   vtb                  цветы   0.08   3000.0        all       1       1
+   22   vtb                  цветы   0.08   1000.0        all       1       1
    23 alpha        цифровые товары   0.05   5000.0        all       1       0
-   24   vtb      ювелирные изделия   0.15   3000.0        all       1       0
+   24   vtb               здоровье   0.04   1000.0        all       1       0
 
 Columns: rank, bank, category, ratio (cashback %), m_limit (monthly limit RUR), limit_type, status (1=active), locked (1=fixed by you)
