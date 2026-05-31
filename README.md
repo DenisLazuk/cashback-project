@@ -25,14 +25,7 @@ pip install -r requirements.txt
 ```bash
 python CASHBACK_app.py
 ```
-
-Или через батник (Windows):
-
-```bash
-run_cashback.bat
-```
-
-Для использования Anaconda Python:
+или через использование Anaconda Python:
 
 ```bash
 C:\Users\denis\Software\anaconda\python.exe CASHBACK_app.py

@@ -23,100 +23,83 @@ from typing import Dict, Iterable, Tuple, List, Optional
 # с подпиской Pro иначе 3000
 tbank = {
     ('tbank', 'на все', 0.01, 5000, 'all', 1, 4, 0),
-    ('tbank', 'искусство', 0.05, 5000, 'all', 1, 4, 0),
-    ('tbank', 'образование', 0.05, 5000, 'all', 1, 4, 0),
+    ('tbank', 'аптеки', 0.05, 5000, 'all', 1, 4, 0),
+    ('tbank', 'такси', 0.05, 5000, 'all', 1, 4, 0),
     ('tbank', 'досуг', 0.05, 5000, 'all', 1, 4, 0),
-    # каршеринг removed — prefer жд билеты for T-Bank
-    ('tbank', 'книги', 0.05, 5000, 'all', 1, 4, 0),
-    ('tbank', 'жд билеты', 0.05, 5000, 'all', 1, 4, 0),
+    ('tbank', 'жд билеты', 0.05, 5000, 'all', 1, 4, 0)
 }
-
-# MTS Bank
-# mts = {
-#     ('mts', 'продукты', 0.07, 1000, 'one', 1, 5, 0),
-#     ('mts', 'цветы', 0.07, 1000, 'one', 1, 5, 0),
-#     ('mts', 'фастфуд и рестораны', 0.12, 1000, 'one', 1, 5, 0),
-#     ('mts', 'на все', 0.07, 1000, 'one', 1, 5, 0),
-#     ('mts', 'досуг', 0.2, 1000, 'one', 1, 5, 0),
-#     ('mts', 'дом и ремонт', 0.05, 1000, 'one', 1, 5, 0),
-#     ('mts', 'такси', 0.05, 1000, 'all', 1, 5, 0),
-#     ('mts', 'маркетплейсы', 0.1, 1000, 'all', 1, 5, 0)
-# }
 
 # Domrf Bank
 # Условия: 1000 суммарный размер кешбека в месяц по всем категориям
 dom = {
     ('dom', 'спорттовары', 0.05, 1000, 'all', 1, 4, 0),
-    ('dom', 'подарки', 0.05, 1000, 'all', 1, 4, 0),
-    ('dom', 'бытовые услуги', 0.05, 1000, 'all', 1, 4, 0),
-    ('dom', 'книги', 0.05, 1000, 'all', 1, 4, 0)
+    ('dom', 'транспорт', 0.05, 1000, 'all', 1, 4, 0),
+    ('dom', 'отели', 0.05, 1000, 'all', 1, 4, 0),
+    ('dom', 'образование', 0.05, 1000, 'all', 1, 4, 0)
 }
 
 # PSB Bank
 # Условия: сумма покупок от 5000 в месяц. status=1 = include in selection
 psb = {
-    ('psb', 'салоны красоты', 0.05, 3000, 'all', 1, 3, 0),
-    ('psb', 'такси и каршеринг', 0.05, 3000, 'all', 1, 3, 0),
-    ('psb', 'досуг', 0.01, 3000, 'all', 1, 3, 1),
+    ('psb', 'досуг', 0.05, 3000, 'all', 1, 3, 0),
     ('psb', 'книги', 0.05, 3000, 'all', 1, 3, 0),
     ('psb', 'транспорт', 0.05, 3000, 'all', 1, 3, 0),
     ('psb', 'жд билеты', 0.05, 3000, 'all', 1, 3, 0),
     ('psb', 'спорттовары', 0.03, 3000, 'all', 1, 3, 0),
     ('psb', 'аптеки', 0.03, 3000, 'all', 1, 3, 0),
-    ('psb', 'одежда', 0.03, 3000, 'all', 1, 3, 0),
     ('psb', 'косметика', 0.03, 3000, 'all', 1, 3, 0),
     ('psb', 'бытовая техника', 0.02, 3000, 'all', 1, 3, 0),
     ('psb', 'дом и ремонт', 0.02, 3000, 'all', 1, 3, 0),
+    ('psb', 'цветы', 0.05, 3000, 'all', 1, 3, 0),
+    ('psb', 'кафе и рестораны', 0.05, 3000, 'all', 1, 3, 0),
+    ('psb', 'товары для детей', 0.05, 3000, 'all', 1, 3, 0)
 }
 
 # Sberbank
 # Условия: 5000 суммарный размер кешбека в месяц по всем категориям
 sber = {
-    ('sber', 'на все', 0.01, 5000, 'all', 1, 3, 0),
+    ('sber', 'на все', 0.005, 5000, 'all', 1, 3, 0),
     ('sber', 'медицинские услуги', 0.02, 5000, 'all', 1, 3, 0),
-    ('sber', 'парфюмерия и косметика', 0.05, 5000, 'all', 1, 3, 0),
-    ('sber', 'питомцы', 0.05, 5000, 'all', 1, 3, 0),
-    # такси и каршеринг removed — prefer OTP for this category
-    ('sber', 'транспорт', 0.10, 5000, 'all', 1, 3, 0),
-    ('sber', 'досуг', 0.05, 5000, 'all', 1, 3, 0),
+    ('sber', 'салоны красоты', 0.03, 5000, 'all', 1, 3, 0),
+    ('sber', 'электроника', 0.05, 5000, 'all', 1, 3, 0),
+    ('sber', 'одежда и обувь', 0.02, 5000, 'all', 1, 3, 0),
+    ('sber', 'образование', 0.03, 5000, 'all', 1, 3, 0),
+    ('sber', 'спорт', 0.03, 5000, 'all', 1, 3, 0),
+    ('sber', 'досуг', 0.03, 5000, 'all', 1, 3, 0)
 }
 
 # Alfa Bank
 # Условия: 5000 суммарный размер кешбека в месяц по всем категориям
 alpha = {
     ('alpha', 'на все', 0.01, 5000, 'all', 1, 3, 0),
-    ('alpha', 'спорттовары', 0.05, 5000, 'all', 1, 3, 0),
-    ('alpha', 'цифровые товары', 0.05, 5000, 'all', 1, 3, 0),
-    ('alpha', 'аптеки', 0.03, 5000, 'all', 1, 3, 0),
-    ('alpha', 'дикси доставка', 0.20, 5000, 'all', 1, 3, 0),
+    ('alpha', 'кафе и рестораны', 0.05, 5000, 'all', 1, 3, 0),
+    ('alpha', 'образование', 0.05, 5000, 'all', 1, 3, 0),
+    ('alpha', 'книги', 0.05, 5000, 'all', 1, 3, 0),
+    ('alpha', 'дикси доставка', 0.19, 2000, 'all', 1, 3, 0),
 }
 
 # OTP Bank
 # Условия: 3000 суммарный размер кешбека в месяц по всем категориям
 otp = {
-    ('otp', 'на все', 0.01, 3000, 'all', 1, 4, 0),
-    ('otp', 'коммуналка', 0.03, 3000, 'all', 1, 4, 0),
-    ('otp', 'цветы', 0.10, 3000, 'all', 1, 4, 0),
-    ('otp', 'аптеки', 0.01, 3000, 'all', 1, 4, 0),
+    ('otp', 'одежда и обувь', 0.05, 3000, 'all', 1, 4, 0),
     ('otp', 'медицинские услуги', 0.02, 3000, 'all', 1, 4, 0),
     ('otp', 'супермаркеты', 0.02, 3000, 'all', 1, 4, 0),
+    ('otp', 'цветы', 0.1, 3000, 'all', 1, 4, 0),
+    ('otp', 'коммуналка', 0.03, 3000, 'all', 1, 4, 0),
+    ('otp', 'искусство', 0.1, 3000, 'all', 1, 4, 0),
     ('otp', 'кафе и рестораны', 0.05, 3000, 'all', 1, 4, 0),
-    ('otp', 'искусство', 0.10, 3000, 'all', 1, 4, 0),
-    ('otp', 'образование', 0.05, 3000, 'all', 1, 4, 0),
-    ('otp', 'одежда и обувь', 0.05, 3000, 'all', 1, 4, 0),
+    ('otp', 'на все', 0.01, 3000, 'all', 1, 4, 0),
     ('otp', 'такси и каршеринг', 0.05, 3000, 'all', 1, 4, 0),
+    ('otp', 'образование', 0.05, 3000, 'all', 1, 4, 0)
 }
 
 # VTB Bank
 # Условия: сумма покупок от 5000 в месяц
 vtb = {
-    ('vtb', 'дом и ремонт', 0.04, 1000, 'all', 1, 3, 0),
-    ('vtb', 'аптеки', 0.04, 1000, 'all', 1, 3, 0),
-    ('vtb', 'ювелирные изделия', 0.15, 1000, 'all', 1, 3, 0),
-    ('vtb', 'детские товары', 0.04, 1000, 'all', 1, 3, 0),
-    ('vtb', 'цветы', 0.08, 1000, 'all', 1, 3, 0),
-    ('vtb', 'здоровье', 0.04, 1000, 'all', 1, 3, 0),
-}
+    ('vtb', 'hoff', 0.1, 1000, 'all', 1, 3, 0),
+    ('vtb', 'подружка', 0.15, 1000, 'all', 1, 3, 0),
+    ('vtb', 'wollmer', 0.15, 1000, 'all', 1, 3, 0)
+    }
 
 # Column names for reference
 columns = ['name', 'category', 'ratio', 'm_limit', 'limit_type', 'status', 'total_cats', 'bonus']
@@ -124,7 +107,6 @@ columns = ['name', 'category', 'ratio', 'm_limit', 'limit_type', 'status', 'tota
 # Dictionary of all banks
 banks_dict = {
     'tbank': tbank,
-    # 'mts': mts,
     'dom': dom,
     'psb': psb,
     'sber': sber,
@@ -143,23 +125,19 @@ PRIORITY_CATEGORIES = [
     'жд билеты',
     'фастфуд',
     'кафе и рестораны',
-    'досуг',
-]
+    'досуг'
+    ]
 
 # Pre-selected (bank, category) — fixed by user, cannot be changed by the algorithm.
 # Example: [('tbank', 'на все'), ('alpha', 'аптеки')]
 LOCKED_SELECTIONS: List[Tuple[str, str]] = [
     ('tbank', 'на все'),
-    ('tbank', 'досуг'),
-    ('tbank', 'подарки'),
-    ('tbank', 'рестораны'),
-    ('vtb', 'продукты'),
-    ('vtb', 'цветы'),
-    ('vtb', 'образование'),
-    ('otp', 'одежда'),
-    ('otp', 'продукты'),
-    ('otp', 'такси и каршеринг'),
-    ('otp', 'коммуналка')
+    ('dom', 'транспорт'),
+    ('dom', 'спорттовары'),
+    ('dom', 'отели'),
+    ('dom', 'образование'),
+    ('alpha', 'дикси доставка'),
+    ('otp', 'такси и каршеринг')
     ]
 
 # ==============================================================================
@@ -397,15 +375,10 @@ def select_best_global(
         selected_df = selected_df.drop(columns=['_bank_priority'], errors='ignore')
 
     if not selected_df.empty:
-        # Sort by priority order then category then ratio for readable output
-        def _cat_order(c):
-            try:
-                return priority_categories.index(c)
-            except ValueError:
-                return len(priority_categories)
-        selected_df['_order'] = selected_df['category'].apply(_cat_order)
-        selected_df = selected_df.sort_values(by=['_order', 'category', 'ratio'], ascending=[True, True, False]).reset_index(drop=True)
-        selected_df = selected_df.drop(columns=['_order'], errors='ignore')
+        selected_df = selected_df.sort_values(
+            by=['category', 'bank', 'ratio'],
+            ascending=[True, True, False]
+        ).reset_index(drop=True)
         selected_df.insert(0, 'rank', range(1, len(selected_df) + 1))
 
     return selected_df
@@ -503,6 +476,13 @@ def write_best_categories_to_txt(
     out = df.copy()
     if active_only:
         out = out[out['status'] != 0].reset_index(drop=True)
+    if 'rank' in out.columns:
+        out = out.drop(columns=['rank'])
+    out = out.sort_values(
+        by=['category', 'bank', 'ratio'],
+        ascending=[True, True, False]
+    ).reset_index(drop=True)
+    out.insert(0, 'rank', range(1, len(out) + 1))
     cols = [c for c in ['rank', 'bank', 'category', 'ratio', 'm_limit', 'limit_type', 'status', 'locked'] if c in out.columns]
     out = out[cols]
     with open(filepath, 'w', encoding=encoding) as f:
